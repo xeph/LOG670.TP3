@@ -34,25 +34,156 @@
 
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>MODÉLISATION ET SIMULATION</h3>
 	  
-	  <p>Présentez d’abord le système dans son ensemble puis expliquez chaque élément spécifiques grâce à des instantanés de simulations.</p>
+	  <p><em>Présentez d’abord le système dans son ensemble puis expliquez chaque élément spécifiques grâce à des instantanés de simulations.</em></p>
+	  
+	  <p>Le système suivant représente deux robots dont un faisant des boites et des cylindres et l'autre faisant des couvercles et les mettant sur les produits fait par le premier
+	  robot. Lorsque les couvercles sont mis, chaque produit fini est storé dans un entrepôt.</p>
+	  
+	  <p>Pour commencer, les matériaux bruts sont représentés par <em>mat_brut_box</em> et <em>mat_brut_cyl</em>. Par la suite, tout ce qui touche au robot A est représenté avec un nom qui commence
+	  par a_. Il en est de même pour le robot B avec ces noms qui commencent par b_. Donc, avec les matériaux bruts, on produit des boites et des cylindres (<em>a_prod_box, a_prod_cyl</em>).
+	  Lorsqu'une boite ou un cylindre est terminé, celui-ci est transféré pour lui poser un couvercle (<em>trans_box, trans_cyl</em>). Lorsqu'un couvercle est apposé sur une boite ou un cylindre
+	  (<em>b_prod_lid_box, b_prod_lid_cyl</em>) on le store dnas un entrepôt (<em>box_done, cyl_done, storing_box, storing_cyl</em>). L'élément <em>trans_free</em> représente le nombre de palette libre pour
+	  transporter les divers produits. Une nouvelle palette devient disponible lorsqu'un produit a été livré au robot B. Un maximum de 6 palettes est disponible dans le système et qui est représenté
+	  par l'élément <em>tray</em>. Le compte du nombre de produit fini est contenu dans les éléments <em>box</em> et <em>cyl</em>.</p>
+	  
+	  <img src="images/modelisation.png"/>
 	  
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>VÉRIFICATION COMPORTEMENTALE</h3>
 	  
-	  <p>Éliminez les places puits et présentez votre graphe d’accessibilité ainsi que votre interprétation concernant les propriétés comportementales de votre système.</p>
+	  <p><em>Éliminez les places puits et présentez votre graphe d’accessibilité ainsi que votre interprétation concernant les propriétés comportementales de votre système.</em></p>
+	  
+	  <img src="images/comportementale.png"/>
 	  
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>VÉRIFICATION STRUCTURELLE</h3>
 	  
-	  <p>Présentez les P-invariants et les T-invariants ainsi que votre interprétation de ceux-ci. Voici quelques propriétés que vous devriez tenir compte dans votre analyse comportementale (2) et votre analyse structurelle (3) : Le caractère borné du réseau; Les possibilités d’interblocage; L’accessibilité; La vivacité; L’alternance stricte entre la production des boîtes et celle des cylindres; L’utilisation des palettes; Toute autre particularité dérivée de l’analyse des invariants.</p>
+	  <p><em>Présentez les P-invariants et les T-invariants ainsi que votre interprétation de ceux-ci. Voici quelques propriétés que vous devriez tenir compte dans votre analyse comportementale (2) et votre analyse structurelle (3) : Le caractère borné du réseau; Les possibilités d’interblocage; L’accessibilité; La vivacité; L’alternance stricte entre la production des boîtes et celle des cylindres; L’utilisation des palettes; Toute autre particularité dérivée de l’analyse des invariants.</em></p>
+	  
+	  <table>
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>p0</td>
+			<td>a_rdy_box</td>
+			<td>Production de boite prête.</td>
+		</tr>
+		<tr>
+			<td>p1</td>
+			<td>a_rdy_cyl</td>
+			<td>Production de cylindre prête.</td>
+		</tr>
+		<tr>
+			<td>p2</td>
+			<td>trans_box</td>
+			<td>État qui détermine lorsqu'une boite est en transition vers le robot B.</td>
+		</tr>
+		<tr>
+			<td>p3</td>
+			<td>trans_free</td>
+			<td>Nombre de palette qui sont libres pour effectuer le transfert du robot A vers le robot B.</td>
+		</tr>
+		<tr>
+			<td>p4</td>
+			<td>trans_cyl</td>
+			<td>État qui détermine lorsqu'un cylindre est en transition vers le robot B.</td>
+		</tr>
+		<tr>
+			<td>p5</td>
+			<td>tray</td>
+			<td>Nombre de palette total disponible dans le système.</td>
+		</tr>
+		<tr>
+			<td>p6</td>
+			<td>b_rdy_lid_box</td>
+			<td>Production de couvercle pour boite prête.</td>
+		</tr>
+		<tr>
+			<td>p7</td>
+			<td>b_rdy_lid_cyl</td>
+			<td>Production de couvercle pour cylindre prête.</td>
+		</tr>
+		<tr>
+			<td>p8</td>
+			<td>box_done</td>
+			<td>Boite prête a être acheminé vers l'entrepôt.</td>
+		</tr>
+		<tr>
+			<td>p9</td>
+			<td>box</td>
+			<td>Store le nombre de boite dans l'entrepôt.</td>
+		</tr>
+		<tr>
+			<td>p10</td>
+			<td>cyl_done</td>
+			<td>Cylindre prêt a être acheminé vers l'entrepôt.</td>
+		</tr>
+		<tr>
+			<td>p11</td>
+			<td>cyl</td>
+			<td>Store le nombre de cylindre dans l'entrepôt.</td>
+		</tr>
+		<tr>
+			<td>p12</td>
+			<td>mat_brut_box</td>
+			<td>Matériaux brut requis pour effectuer la confection d'une boite.</td>
+		</tr>
+		<tr>
+			<td>p13</td>
+			<td>mat_brut_cyl</td>
+			<td>Matériaux brut requis pour effectuer la confection d'un cylindre.</td>
+		</tr>
+	  </table>
+	  
+	  <table>
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>t0</td>
+			<td>a_prod_box</td>
+			<td>Robot A produit une boite avec l'aide des matériaux bruts.</td>
+		</tr>
+		<tr>
+			<td>t1</td>
+			<td>a_prod_cyl</td>
+			<td>Robot A produit un cylindre avec l'aide des matériaux bruts.</td>
+		</tr>
+		<tr>
+			<td>t2</td>
+			<td>b_prod_lid_box</td>
+			<td>Robot B produit un couvercle et le met sur une boite.</td>
+		</tr>
+		<tr>
+			<td>t3</td>
+			<td>b_prod_lid_cyl</td>
+			<td>Robot B produit un couvercle et le met sur un cylindre.</td>
+		</tr>
+		<tr>
+			<td>t4</td>
+			<td>storing_box</td>
+			<td>Permet de storer une boite dans l'entrepôt.</td>
+		</tr>
+		<tr>
+			<td>t5</td>
+			<td>storing_cyl</td>
+			<td>Permet de storer un cylindre dans l'entrepôt.</td>
+		</tr>
+	  </table>
 	  
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>TRANSFORMATION DE BOUSSIN</h3>
 	  
-	  <p>Présentez, étape par étape, l’application des transformations de Boussin sur votre système et comparez les propriétés comportementale de ce résidu avec celles présentées en (2). Sauvegardez dans un fichier le modèle final (l’analyse comportementale sur ce dernier devrait fournir les mêmes conclusions qu’en 2)</p>
+	  <p><em>Présentez, étape par étape, l’application des transformations de Boussin sur votre système et comparez les propriétés comportementale de ce résidu avec celles présentées en (2). Sauvegardez dans un fichier le modèle final (l’analyse comportementale sur ce dernier devrait fournir les mêmes conclusions qu’en 2)</em></p>
 	  
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>QUESTIONS HYPOTHÉTIQUES</h3>
 	  
 	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Y a-t-il des moments d’attente potentiels?</h4>
 	  
-	  <p>TODO</p>
+	  <p>Oui, lorsqu'il n'y a plus de palettes de disponible pour effectuer le transport des divers boites et cylindre. Une palette redevient disponible lorsque le produit final est 
+	  entreposer dans l'entrepôt.</p>
 	  
 	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cette distribution des quantités (espaces et palettes) est-elle optimale?</h4>
 	  
