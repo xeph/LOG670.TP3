@@ -60,68 +60,7 @@
 	  
 	  <p><em>Présentez les P-invariants et les T-invariants ainsi que votre interprétation de ceux-ci. Voici quelques propriétés que vous devriez tenir compte dans votre analyse comportementale (2) et votre analyse structurelle (3) : Le caractère borné du réseau; Les possibilités d’interblocage; L’accessibilité; La vivacité; L’alternance stricte entre la production des boîtes et celle des cylindres; L’utilisation des palettes; Toute autre particularité dérivée de l’analyse des invariants.</em></p>
 	  
-	  <table>
-		<tr>
-			<th>Nom</th>
-			<th>Description</th>
-		</tr>
-		<tr>
-			<td>a_rdy_box</td>
-			<td>Production de boite prête.</td>
-		</tr>
-		<tr>
-			<td>a_rdy_cyl</td>
-			<td>Production de cylindre prête.</td>
-		</tr>
-		<tr>
-			<td>trans_box</td>
-			<td>État qui détermine lorsqu'une boite est en transition vers le robot B.</td>
-		</tr>
-		<tr>
-			<td>trans_free</td>
-			<td>Nombre de palette qui sont libres pour effectuer le transfert du robot A vers le robot B.</td>
-		</tr>
-		<tr>
-			<td>trans_cyl</td>
-			<td>État qui détermine lorsqu'un cylindre est en transition vers le robot B.</td>
-		</tr>
-		<tr>
-			<td>tray</td>
-			<td>Nombre de palette total disponible dans le système.</td>
-		</tr>
-		<tr>
-			<td>b_rdy_lid_box</td>
-			<td>Production de couvercle pour boite prête.</td>
-		</tr>
-		<tr>
-			<td>b_rdy_lid_cyl</td>
-			<td>Production de couvercle pour cylindre prête.</td>
-		</tr>
-		<tr>
-			<td>box_done</td>
-			<td>Boite prête a être acheminé vers l'entrepôt.</td>
-		</tr>
-		<tr>
-			<td>box</td>
-			<td>Store le nombre de boite dans l'entrepôt.</td>
-		</tr>
-		<tr>
-			<td>cyl_done</td>
-			<td>Cylindre prêt a être acheminé vers l'entrepôt.</td>
-		</tr>
-		<tr>
-			<td>cyl</td>
-			<td>Store le nombre de cylindre dans l'entrepôt.</td>
-		</tr>
-		<tr>
-			<td>mat_brut_box</td>
-			<td>Matériaux brut requis pour effectuer la confection d'une boite.</td>
-		</tr>
-		<tr>
-			<td>mat_brut_cyl</td>
-			<td>Matériaux brut requis pour effectuer la confection d'un cylindre.</td>
-		</tr>
-	  </table>
+	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>TABLEAU DES TRANSITIONS</h4>
 	  
 	  <table>
 		<tr>
@@ -129,30 +68,163 @@
 			<th>Description</th>
 		</tr>
 		<tr>
-			<td>a_prod_box</td>
-			<td>Robot A produit une boite avec l'aide des matériaux bruts.</td>
+			<td>A</td>
+			<td>a_debut_corps_boîte</td>
 		</tr>
 		<tr>
-			<td>a_prod_cyl</td>
-			<td>Robot A produit un cylindre avec l'aide des matériaux bruts.</td>
+			<td>B</td>
+			<td>a_fin_corps_boîte</td>
 		</tr>
 		<tr>
-			<td>b_prod_lid_box</td>
-			<td>Robot B produit un couvercle et le met sur une boite.</td>
+			<td>C</td>
+			<td>a_debut_corps_cyl</td>
 		</tr>
 		<tr>
-			<td>b_prod_lid_cyl</td>
-			<td>Robot B produit un couvercle et le met sur un cylindre.</td>
+			<td>D</td>
+			<td>a_fin_corps_cyl</td>
 		</tr>
 		<tr>
-			<td>storing_box</td>
-			<td>Permet de storer une boite dans l'entrepôt.</td>
+			<td>E</td>
+			<td>b_debut_couv_boîte</td>
 		</tr>
 		<tr>
-			<td>storing_cyl</td>
-			<td>Permet de storer un cylindre dans l'entrepôt.</td>
+			<td>F</td>
+			<td>b_fin_couv_boîte</td>
+		</tr>
+		<tr>
+			<td>G</td>
+			<td>b_debut_couv_cyl</td>
+		</tr>
+		<tr>
+			<td>H</td>
+			<td>b_fin_couv_cyl</td>
 		</tr>
 	  </table>
+	  
+	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>TABLEAU DES PLACES</h4>
+	  
+	  <table>
+		<tr>
+			<th>Nom</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>P1</td>
+			<td>a_ready_box</td>
+		</tr>
+		<tr>
+			<td>P2</td>
+			<td>mat_brut_box</td>
+		</tr>
+		<tr>
+			<td>P3</td>
+			<td>p14</td>
+		</tr>
+		<tr>
+			<td>P4</td>
+			<td>a_ready_cyl</td>
+		</tr>
+		<tr>
+			<td>P5</td>
+			<td>mat_brut_cyl</td>
+		</tr>
+		<tr>
+			<td>P6</td>
+			<td>p15</td>
+		</tr>
+		<tr>
+			<td>P7</td>
+			<td>tray</td>
+		</tr>
+		<tr>
+			<td>P8</td>
+			<td>trans_box</td>
+		</tr>
+		<tr>
+			<td>P9</td>
+			<td>trans_free</td>
+		</tr>
+		<tr>
+			<td>P10</td>
+			<td>trans_cyl</td>
+		</tr>
+		<tr>
+			<td>P11</td>
+			<td>b_rdy_lid_box</td>
+		</tr>
+		<tr>
+			<td>P12</td>
+			<td>p17</td>
+		</tr>
+		<tr>
+			<td>P13</td>
+			<td>entrepôt_box</td>
+		</tr>
+		<tr>
+			<td>P14</td>
+			<td>b_rdy_lid_cyl</td>
+		</tr>
+		<tr>
+			<td>P15</td>
+			<td>p18</td>
+		</tr>
+		<tr>
+			<td>P16</td>
+			<td>entrepôt_cyl</td>
+		</tr>
+	  </table>
+	  
+	  <p>On obtient la matrice P-Invariant suivante:</p>
+	  
+	  <a href="http://xeph.github.io/LOG670.TP3/images/matrix-P.png" target="_blank"><img src="images/matrix-P.png"/></a>
+	  
+	  <p>Ce qui permet de définir les P-Invariants suivants:</p>
+
+	  <ul>
+		<li>P2=0</li>
+		<li>P5=0</li>
+		<li>P1+P3+P4+P6 = 0</li>
+		<li>P8+P11+P12+P14+P15 = 0</li>
+	  </ul>
+	  
+	  <p>En conservant les mêmes valeurs que dans les P-Invariants, on obtient la matrice des T-Invariants suivante:</p>
+
+	  <a href="http://xeph.github.io/LOG670.TP3/images/matrix-T.png" target="_blank"><img src="images/matrix-T.png"/></a>
+	  
+	  <p>En procédant aux opérations pour trouver les T-Invariants, il est impossible de trouver des T-Invariants.</p>
+	  
+	  <h5><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>LES POSSIBILITÉS D'INTERBLOCAGE</h5>
+	  
+	  <a href="http://xeph.github.io/LOG670.TP3/images/acessibilite.png" target="_blank"><img src="images/acessibilite.png"/></a>
+	  
+	  <p>Selon l’outil d’analyse d’accessabilité de Tina, le résultat du graphe de couverture (coverability graph), il n’est pas capable de sortir un état mort, ce qui semble démontrer qu’il n’y a pas d’interblocage.</p>
+	  
+	  <p>Nous avons trouvé quelques autres méthodes d’analyse d’interbloquage dans les réseaux de pétrie. Toutefois, puisque cette information avait été omise en classe, nous avons jugé préférable de simplement les mentionner sans faire de lourdes analyses. Voici les documents de recherche en question:</p>
+	  
+	  <ul>
+		<li><a href="http://sysarch.gmu.edu/main/media/publications/docs/158-P_.pdf">http://sysarch.gmu.edu/main/media/publications/docs/158-P_.pdf</a></li>
+		<li><a href="http://www.researchgate.net/profile/Kamel_Barkaoui2/publication/223346043_Deadlocks_and_traps_in_Petri_nets_as_Horn-satisfiability_solutions_and_some_related_polynomially_solvable_problems/links/54135aec0cf2fa878ad3d9ac.pdf">http://www.researchgate.net/profile/Kamel_Barkaoui2/publication/223346043_Deadlocks_and_traps_in_Petri_nets_as_Horn-satisfiability_solutions_and_some_related_polynomially_solvable_problems/links/54135aec0cf2fa878ad3d9ac.pdf</a></li>
+	  </ul>
+	  
+	  <h5><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>L'ACCESSIBILITÉ</h5>
+	  
+	  <p></p>
+	  
+	  <h5><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>LA VIVACITÉ</h5>
+	  
+	  <p></p>
+	  
+	  <h5><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>L'ALTERNANCE STRICTE ENTRE LA PRODUCTION DES BOÎTES ET CELLE DES CYLINDRES</h5>
+	  
+	  <p></p>
+	  
+	  <h5><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>L'UTILISATION DES PALETTES</h5>
+	  
+	  <p>En additionnant l’ensemble des valeurs de la matrice des T-Invariants, on obtient les valeurs P13 = P16 = 1. Ceci permet d’affirmer que l’utilisation des palettes est cyclique et permet de retourner à la configuration initiale. Cette affirmation est simple, car P13 et P16 sont des places servant de compteurs. Si l’on enlève ces compteurs, les T-Invariants seraient l’addition de tous donnerait égale à 0.</p>
+	  
+	  <h5><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>TOUTE AUTRE PARTICULARITÉ DÉRIVÉE DE L'ANALYSE DES INVARIANTS</h5>
+	  
+	  <p>Étant donné que P2 et P5 sont toujours à 0, il est possible d’affirmer qu’il s’agit d’une section conservative du réseau. De plus, les places P1, P3, P4 et P6 maintiendront un nombre de palettes constantes, qui est une autre section conservatrice (Cycle A). Il y a aussi P8, P11, P12, P14 et P15 forment un autre cycle conservateur (Cycle B). Sachant que les cycles A et B sont des cycles conservateurs, ceci permet de démontrer qu’il y a une indépendance entre les deux robots du système.</p>
 	  
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>TRANSFORMATION DE BOUSSIN</h3>
 	  
