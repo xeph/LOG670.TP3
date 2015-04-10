@@ -46,13 +46,15 @@
 	  transporter les divers produits. Une nouvelle palette devient disponible lorsqu'un produit a été livré au robot B. Un maximum de 6 palettes est disponible dans le système et qui est représenté
 	  par l'élément <em>tray</em>. Le compte du nombre de produit fini est contenu dans les éléments <em>box</em> et <em>cyl</em>.</p>
 	  
-	  <img src="images/modelisation.png"/>
+	  <a href="http://xeph.github.io/LOG670.TP3/images/modele_explicite.png" target="_blank"><img src="images/modele_explicite.png"/></a>
 	  
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>VÉRIFICATION COMPORTEMENTALE</h3>
 	  
 	  <p><em>Éliminez les places puits et présentez votre graphe d’accessibilité ainsi que votre interprétation concernant les propriétés comportementales de votre système.</em></p>
 	  
-	  <img src="images/comportementale.png"/>
+	  <a href="http://xeph.github.io/LOG670.TP3/images/labo3_modele_sans_puits.png" target="_blank"><img src="images/labo3_modele_sans_puits.png"/></a>
+	  
+	  <p>NIGEL TODO</p>
 	  
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>VÉRIFICATION STRUCTURELLE</h3>
 	  
@@ -60,77 +62,62 @@
 	  
 	  <table>
 		<tr>
-			<th>ID</th>
 			<th>Nom</th>
 			<th>Description</th>
 		</tr>
 		<tr>
-			<td>p0</td>
 			<td>a_rdy_box</td>
 			<td>Production de boite prête.</td>
 		</tr>
 		<tr>
-			<td>p1</td>
 			<td>a_rdy_cyl</td>
 			<td>Production de cylindre prête.</td>
 		</tr>
 		<tr>
-			<td>p2</td>
 			<td>trans_box</td>
 			<td>État qui détermine lorsqu'une boite est en transition vers le robot B.</td>
 		</tr>
 		<tr>
-			<td>p3</td>
 			<td>trans_free</td>
 			<td>Nombre de palette qui sont libres pour effectuer le transfert du robot A vers le robot B.</td>
 		</tr>
 		<tr>
-			<td>p4</td>
 			<td>trans_cyl</td>
 			<td>État qui détermine lorsqu'un cylindre est en transition vers le robot B.</td>
 		</tr>
 		<tr>
-			<td>p5</td>
 			<td>tray</td>
 			<td>Nombre de palette total disponible dans le système.</td>
 		</tr>
 		<tr>
-			<td>p6</td>
 			<td>b_rdy_lid_box</td>
 			<td>Production de couvercle pour boite prête.</td>
 		</tr>
 		<tr>
-			<td>p7</td>
 			<td>b_rdy_lid_cyl</td>
 			<td>Production de couvercle pour cylindre prête.</td>
 		</tr>
 		<tr>
-			<td>p8</td>
 			<td>box_done</td>
 			<td>Boite prête a être acheminé vers l'entrepôt.</td>
 		</tr>
 		<tr>
-			<td>p9</td>
 			<td>box</td>
 			<td>Store le nombre de boite dans l'entrepôt.</td>
 		</tr>
 		<tr>
-			<td>p10</td>
 			<td>cyl_done</td>
 			<td>Cylindre prêt a être acheminé vers l'entrepôt.</td>
 		</tr>
 		<tr>
-			<td>p11</td>
 			<td>cyl</td>
 			<td>Store le nombre de cylindre dans l'entrepôt.</td>
 		</tr>
 		<tr>
-			<td>p12</td>
 			<td>mat_brut_box</td>
 			<td>Matériaux brut requis pour effectuer la confection d'une boite.</td>
 		</tr>
 		<tr>
-			<td>p13</td>
 			<td>mat_brut_cyl</td>
 			<td>Matériaux brut requis pour effectuer la confection d'un cylindre.</td>
 		</tr>
@@ -138,37 +125,30 @@
 	  
 	  <table>
 		<tr>
-			<th>ID</th>
 			<th>Nom</th>
 			<th>Description</th>
 		</tr>
 		<tr>
-			<td>t0</td>
 			<td>a_prod_box</td>
 			<td>Robot A produit une boite avec l'aide des matériaux bruts.</td>
 		</tr>
 		<tr>
-			<td>t1</td>
 			<td>a_prod_cyl</td>
 			<td>Robot A produit un cylindre avec l'aide des matériaux bruts.</td>
 		</tr>
 		<tr>
-			<td>t2</td>
 			<td>b_prod_lid_box</td>
 			<td>Robot B produit un couvercle et le met sur une boite.</td>
 		</tr>
 		<tr>
-			<td>t3</td>
 			<td>b_prod_lid_cyl</td>
 			<td>Robot B produit un couvercle et le met sur un cylindre.</td>
 		</tr>
 		<tr>
-			<td>t4</td>
 			<td>storing_box</td>
 			<td>Permet de storer une boite dans l'entrepôt.</td>
 		</tr>
 		<tr>
-			<td>t5</td>
 			<td>storing_cyl</td>
 			<td>Permet de storer un cylindre dans l'entrepôt.</td>
 		</tr>
@@ -178,20 +158,51 @@
 	  
 	  <p><em>Présentez, étape par étape, l’application des transformations de Boussin sur votre système et comparez les propriétés comportementale de ce résidu avec celles présentées en (2). Sauvegardez dans un fichier le modèle final (l’analyse comportementale sur ce dernier devrait fournir les mêmes conclusions qu’en 2)</em></p>
 	  
+	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>LISTE DES RÈGLES</h4>
+	  
+	  <ul>
+		<li>R1: Suppression d’une transition isolée</li>
+		<li>R2: Suppression d’une place isolée</li>
+		<li>R3: Suppression d’une transition isolée bouclée</li>
+		<li>R4: Suppression d’une place isolée bouclée</li>
+		<li>R5: Fusion de plusieurs transitions isolées</li>
+		<li>R6: Fusion de plusieurs places isolées</li>
+	  </ul>
+
+	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>TRANSFORMATIONS</h4>
+	  
+	  <ol>
+		<li>On applique R2 sur p14. Les transitions a_debut_corps_boîte et a_fin_corps_boîte sont fusionnées en une seule transition nommée a_prod_corps_boîte.</li>
+		<li>On applique R2 sur p15. Les transitions a_debut_corps_cyl et a_fin_corps_cyl sont fusionnées en une seule transition nommée a_prod_corps_cyl.</li>
+		<li>On applique R2 sur p17. Les transitions a_debut_couv_boîte et a_fin_couv_boîte sont fusionnées en une seule transition nommée a_prod_couv_boîte.</li>
+		<li>On applique R2 sur p18. Les transitions a_debut_couv_cyl et a_fin_couv_cyl sont fusionnées en une seule transition nommée a_prod_couv_cyl.</li>
+		<li>On applique R4 sur mat_brut_box.</li>
+		<li>On applique R4 sur mat_brut_cyl.</li>
+	  </ol>
+	  
+	  
+	  <a href="http://xeph.github.io/LOG670.TP3/images/labo3_modele_residu.png" target="_blank"><img src="images/labo3_modele_residu.png"/></a>
+	  
 	  <h3><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>QUESTIONS HYPOTHÉTIQUES</h3>
 	  
 	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Y a-t-il des moments d’attente potentiels?</h4>
 	  
-	  <p>Oui, lorsqu'il n'y a plus de palettes de disponible pour effectuer le transport des divers boites et cylindre. Une palette redevient disponible lorsque le produit final est 
-	  entreposer dans l'entrepôt.</p>
+	  <p>Oui, il peut y avoir des moments d’attentes potentiel puisque l’exécution des deux robots ne se fait pas réellement en parallèle et il y a un nombre d’itération maximal qu’un robot peut faire sans devoir attendre une itération de l’autre robot.</p>
+	  <ul>
+		<li>Pour ce qui est du nombre de palettes en circulation, le robot A un utilise 3, 2 + 1, palettes pour faire une itération complète. Ainsi, le robot A peut faire 2 itérations complètes avant de devoir bloquer sans fonctionnement de B. </li>
+		<li>Pour ce qui est de l’espace entre les deux robots, il en va de même. Le robot A utilise 2, 1 + 1, espace entre les deux robots pour stocker une itération complète. Ainsi, le robot A peut faire 2 itérations complètes avant de devoir bloquer sans fonctionnement de B.</li>
+	  </ul>
+	  <p>Ainsi, le robot A est bloqué après deux itération complète sans que le robot B fonctionne.</p>
 	  
 	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cette distribution des quantités (espaces et palettes) est-elle optimale?</h4>
 	  
-	  <p>TODO</p>
+	  <p>Le nombre de palettes disponible doit rester un multiple de X, où X est le nombre de palette en circulation, Y le nombre de palettes disponible pour transporter des boîtes et Z le nombre de palettes disponible pour transporter des cylindres. Donc, Y et Z doivent être des multiples 
+	  de X comme par exemple si X = 6, Y = 2 et Z = 3 ils sont tous des multiples de X. Dans un monde idéal, ou les deux robots fonctionnent réellement en parallèle,  le nombre de palettes disponible pour faire un cycle devrait être de 3 et le nombre d’espace de stockage devrait être de 2. 
+	  Ainsi, le robot A attendrait uniquement lors de la première itération et tous s’enchaînerait bien sans surplus par la suite.</p>
 	  
 	  <h4><a id="etats_justifies" class="anchor" href="#etats_justifies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Si la fabrication d’un corps de boîte est deux fois plus long que la fabrication d’un corps de cylindre, quelles seraient les nouvelles (si nécessaire) valeurs optimales pour les constantes (espaces et palettes)?</h4>
 	  
-	  <p>TODO</p>
+	  <p>Les valeurs resteraient les mêmes, car peut importe il va toujours y avoir un moment d’attente et que les valeurs ne dépendent pas du temps.</p>
 	  
       </section>
     </div>
