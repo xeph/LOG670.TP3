@@ -1,0 +1,39 @@
+t 210.0 50.0 {a_prod_corps_boîte} n 0 w n {} ne
+t 395.0 445.0 {b_prod_couv_boîte} n 0 w n {} ne
+p 60.0 50.0 a_rdy_box 1 n
+t 655.0 50.0 a_prod_corps_cyl n 0 w n {} ne
+p 30.0 195.0 tray 6 n
+p 640.0 445.0 b_rdy_lid_cyl 1 n
+t 930.0 445.0 b_prod_couv_cyl n 0 w n {} ne
+p 780.0 235.0 trans_cyl 0 n
+p 540.0 240.0 trans_free 4 n
+p 300.0 245.0 trans_box 0 n
+p 410.0 50.0 a_rdy_cyl 0 n
+p 225.0 445.0 b_rdy_lid_box 0 n
+p 395.0 540.0 {entrepôt_box} 0 n
+p 930.0 535.0 {entrepôt_cyl} 0 n
+e a_rdy_box {a_prod_corps_boîte} 1 n
+e {a_prod_corps_boîte} a_rdy_cyl 1 n
+e a_rdy_cyl a_prod_corps_cyl 1 n
+e a_prod_corps_cyl 0.5261132781 153.0555455 a_rdy_box 0.9670340809 141.0141837 1 n
+e tray {a_prod_corps_boîte} 2 s
+e tray a_prod_corps_cyl 1 n
+e {a_prod_corps_boîte} trans_box 1 n
+e trans_free {a_prod_corps_boîte} 1 n
+e trans_free a_prod_corps_cyl 1 n
+e a_prod_corps_cyl trans_cyl 1 n
+e {b_prod_couv_boîte} trans_free 1 n
+e trans_box {b_prod_couv_boîte} 1 n
+e b_prod_couv_cyl trans_free 1 n
+e trans_cyl b_prod_couv_cyl 1 n
+e b_rdy_lid_box {b_prod_couv_boîte} 1 n
+e b_rdy_lid_cyl b_prod_couv_cyl 1 n
+e b_prod_couv_cyl 0.5430159061 239.7018982 b_rdy_lid_box 0.959475226 226.296266 1 n
+e {b_prod_couv_boîte} {entrepôt_box} 1 n
+e b_prod_couv_cyl {entrepôt_cyl} 1 n
+e {b_prod_couv_boîte} b_rdy_lid_cyl 1 n
+e {b_prod_couv_boîte} tray 2 w
+e b_prod_couv_cyl tray 1 n
+h labo3_modele_explicite_boussin
+
+
